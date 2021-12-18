@@ -8,7 +8,8 @@ import com.emedinaa.kotlinmvvm.data.db.MuseumDTO
 class MuseumDbRepository(private val dataSource: DbDataSource) {
 
     fun getMuseums(): LiveData<List<Museum>> {
-        return Transformations.map(dataSource.museums()){
+        val museumsFromDataSourceBeforeTransmission = dataSource.museums()
+        return Transformations.map(museumsFromDataSourceBeforeTransmission){
             it.map {itItem ->
                 Museum(itItem.id,itItem.name, itItem.photo)
             }

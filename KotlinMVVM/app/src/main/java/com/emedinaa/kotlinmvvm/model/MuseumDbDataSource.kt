@@ -10,7 +10,7 @@ import com.emedinaa.kotlinmvvm.data.db.MuseumDataBase
 class MuseumDbDataSource(context:Context):DbDataSource {
     private lateinit var museumDao:MuseumDao
     init {
-        val db = MuseumDataBase.getInstance(context)
+        val db: MuseumDataBase? = MuseumDataBase.getInstance(context)
         db?.let {
             museumDao = it.museumDao()
         }
