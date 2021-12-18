@@ -16,7 +16,7 @@ class MuseumDbRepository(private val dataSource: DbDataSource) {
         }
         //converts from LiveData<List<MuseumDTO>> to LiveData<List<Museum>>
         return Transformations.switchMap(museumsFromDbDataSourceLiveData) {
-            MutableLiveData<List<Museum>>()//here is LiveData<List<Museum>>
+            MutableLiveData<List<Museum>>()//here is MutableLiveData<List<Museum>>
         }
     }
 
